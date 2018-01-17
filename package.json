@@ -1,8 +1,7 @@
 {
   "name": "react-cool-starter",
   "version": "2.10.0",
-  "description":
-    "A starter boilerplate for an universal web application with the best development experience and best practices.",
+  "description": "A starter boilerplate for an universal web application with the best development experience and best practices.",
   "main": "index.js",
   "engines": {
     "node": ">=6.0",
@@ -72,16 +71,14 @@
       }
     },
     "build": {
-      "command":
-        "webpack --progress --hide-modules --config ./tools/webpack/config.babel.js",
+      "command": "webpack --progress --hide-modules --config ./tools/webpack/config.babel.js",
       "env": {
         "NODE_ENV": "production",
         "STATS": "disabled"
       }
     },
     "build:stats": {
-      "command":
-        "webpack --progress --hide-modules --config ./tools/webpack/config.babel.js",
+      "command": "webpack --progress --hide-modules --config ./tools/webpack/config.babel.js",
       "env": {
         "NODE_ENV": "production",
         "STATS": "enabled"
@@ -127,17 +124,31 @@
       "stage-0",
       "flow"
     ],
-    "plugins": ["lodash"],
+    "plugins": [
+      "lodash"
+    ],
     "env": {
       "production": {
-        "plugins": ["transform-remove-console"]
+        "plugins": [
+          "transform-remove-console"
+        ]
       }
     }
   },
   "eslintConfig": {
     "parser": "babel-eslint",
-    "extends": ["plugin:lodash-fp/recommended", "airbnb", "prettier"],
-    "plugins": ["react", "jsx-a11y", "import", "lodash-fp", "prettier"],
+    "extends": [
+      "plugin:lodash-fp/recommended",
+      "airbnb",
+      "prettier"
+    ],
+    "plugins": [
+      "react",
+      "jsx-a11y",
+      "import",
+      "lodash-fp",
+      "prettier"
+    ],
     "env": {
       "browser": true,
       "node": true,
@@ -151,13 +162,18 @@
       "jsx-a11y/anchor-is-valid": [
         "error",
         {
-          "specialLink": ["to"]
+          "specialLink": [
+            "to"
+          ]
         }
       ],
       "react/jsx-filename-extension": [
         1,
         {
-          "extensions": [".js", ".jsx"]
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
         }
       ],
       "import/no-extraneous-dependencies": [
@@ -188,18 +204,29 @@
       "./node_modules/prettier-stylelint/config.js"
     ],
     "rules": {
-      "string-quotes": "single",
+      "string-quotes": "double",
       "selector-pseudo-class-no-unknown": [
         true,
         {
-          "ignorePseudoClasses": ["global", "local"]
+          "ignorePseudoClasses": [
+            "global",
+            "local"
+          ]
         }
       ]
     }
   },
-  "browserslist": ["> 1%", "last 2 versions", "ie >= 11", "safari >= 7"],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "ie >= 11",
+    "safari >= 7"
+  ],
   "jest": {
-    "setupFiles": ["raf/polyfill", "<rootDir>/tools/jest/setup.js"],
+    "setupFiles": [
+      "raf/polyfill",
+      "<rootDir>/tools/jest/setup.js"
+    ],
     "collectCoverageFrom": [
       "src/containers/**/*.js",
       "src/components/**/*.js",
@@ -207,8 +234,7 @@
     ],
     "moduleNameMapper": {
       ".*\\.(css|scss|sass)$": "<rootDir>/tools/jest/styleMock.js",
-      ".*\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-        "<rootDir>/tools/jest/assetMock.js"
+      ".*\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tools/jest/assetMock.js"
     }
   },
   "dependencies": {
@@ -216,10 +242,13 @@
     "babel-register": "^6.26.0",
     "chalk": "2.3.0",
     "compression": "1.7.1",
+    "eslint-plugin-flowtype": "^2.41.0",
     "express": "4.16.2",
     "helmet": "3.9.0",
     "history": "^4.7.2",
     "hpp": "^0.2.2",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
     "lodash": "^4.17.4",
     "morgan": "1.9.0",
     "opn": "5.2.0",
@@ -234,6 +263,7 @@
     "redbox-react": "^1.5.0",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
+    "seamless-immutable": "^7.1.2",
     "serialize-javascript": "^1.4.0",
     "serve-favicon": "2.4.5",
     "webpack-isomorphic-tools": "^3.0.5"
@@ -280,7 +310,7 @@
     "nodemon": "1.14.11",
     "postcss": "6.0.16",
     "postcss-loader": "2.0.10",
-    "prettier": "1.10.2",
+    "prettier": "^1.10.2",
     "prettier-stylelint": "^0.4.2",
     "raf": "3.4.0",
     "react-test-renderer": "16.2.0",

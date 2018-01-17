@@ -1,32 +1,32 @@
 /* @flow */
 
-import _ from 'lodash/fp';
+import _ from "lodash/fp";
 
-import type { UserInfo, Action } from '../types';
+import type { UserInfo, Action } from "../types";
 
 type State = UserInfo;
 
 export default (state: State = {}, action: Action): State => {
   switch (action.type) {
-    case 'USER_REQUESTING':
+    case "USER_REQUESTING":
       return _.assign(state, {
         [action.userId]: {
-          readyStatus: 'USER_REQUESTING'
-        }
+          readyStatus: "USER_REQUESTING",
+        },
       });
-    case 'USER_FAILURE':
+    case "USER_FAILURE":
       return _.assign(state, {
         [action.userId]: {
-          readyStatus: 'USER_FAILURE',
-          err: action.err
-        }
+          readyStatus: "USER_FAILURE",
+          err: action.err,
+        },
       });
-    case 'USER_SUCCESS':
+    case "USER_SUCCESS":
       return _.assign(state, {
         [action.userId]: {
-          readyStatus: 'USER_SUCCESS',
-          info: action.data
-        }
+          readyStatus: "USER_SUCCESS",
+          info: action.data,
+        },
       });
     default:
       return state;

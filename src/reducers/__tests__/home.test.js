@@ -1,53 +1,53 @@
-import home from '../home';
+import home from "../home";
 
-describe('users data home', () => {
-  test('should return the initial state', () => {
+describe("users data home", () => {
+  test("should return the initial state", () => {
     expect(home(undefined, {})).toEqual({
-      readyStatus: 'USERS_INVALID',
+      readyStatus: "USERS_INVALID",
       err: null,
-      list: []
+      list: [],
     });
   });
 
-  test('should handle USERS_REQUESTING', () => {
+  test("should handle USERS_REQUESTING", () => {
     expect(
       home(undefined, {
-        type: 'USERS_REQUESTING',
+        type: "USERS_REQUESTING",
         err: null,
-        data: []
-      })
+        data: [],
+      }),
     ).toEqual({
-      readyStatus: 'USERS_REQUESTING',
+      readyStatus: "USERS_REQUESTING",
       err: null,
-      list: []
+      list: [],
     });
   });
 
-  test('should handle USERS_FAILURE', () => {
+  test("should handle USERS_FAILURE", () => {
     expect(
       home(undefined, {
-        type: 'USERS_FAILURE',
-        err: 'Oops! Something went wrong.',
-        data: []
-      })
+        type: "USERS_FAILURE",
+        err: "Oops! Something went wrong.",
+        data: [],
+      }),
     ).toEqual({
-      readyStatus: 'USERS_FAILURE',
-      err: 'Oops! Something went wrong.',
-      list: []
+      readyStatus: "USERS_FAILURE",
+      err: "Oops! Something went wrong.",
+      list: [],
     });
   });
 
-  test('should handle USERS_SUCCESS', () => {
+  test("should handle USERS_SUCCESS", () => {
     expect(
       home(undefined, {
-        type: 'USERS_SUCCESS',
+        type: "USERS_SUCCESS",
         err: null,
-        data: [{ id: '1', name: 'Welly' }]
-      })
+        data: [{ id: "1", name: "Welly" }],
+      }),
     ).toEqual({
-      readyStatus: 'USERS_SUCCESS',
+      readyStatus: "USERS_SUCCESS",
       err: null,
-      list: [{ id: '1', name: 'Welly' }]
+      list: [{ id: "1", name: "Welly" }],
     });
   });
 });

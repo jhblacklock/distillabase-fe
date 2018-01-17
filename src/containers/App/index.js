@@ -1,15 +1,15 @@
 /* @flow */
 
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Helmet from 'react-helmet';
-import _ from 'lodash/fp';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import Helmet from "react-helmet";
+import _ from "lodash/fp";
 
-import config from '../../config';
-import routes from '../../routes';
+import config from "../../config";
+import routes from "../../routes";
 // Import your global styles here
-import '../../theme/normalize.css';
-import styles from './styles.scss';
+import "../../theme/normalize.css";
+import styles from "./styles.scss";
 
 const App = () => {
   // wrap <Route> and use this everywhere instead, then when
@@ -31,7 +31,7 @@ const App = () => {
       <Helmet {...config.app} />
       <div className={styles.header}>
         <img
-          src={require('./assets/logo.svg')}
+          src={require("./assets/logo.svg")}
           alt="Logo"
           role="presentation"
         />

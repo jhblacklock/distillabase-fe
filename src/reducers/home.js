@@ -1,34 +1,23 @@
 /* @flow */
-
-import _ from 'lodash/fp';
-
-import type { Home, Action } from '../types';
-
+import Immutable from "seamless-immutable";
+import type { ImmutableObject } from "seamless-immutable";
+import type { Home, Action } from "../types";
 type State = Home;
 
-const initialState = {
-  readyStatus: 'USERS_INVALID',
-  err: null,
-  list: []
-};
+const INITIAL_STATE: ImmutableObject<State> = Immutable({
+  list: [],
+});
 
-export default (state: State = initialState, action: Action): State => {
+export default (
+  state: ImmutableObject<State> = INITIAL_STATE,
+  action: Action,
+): State => {
   switch (action.type) {
-    case 'USERS_REQUESTING':
-      return _.assign(state, {
-        readyStatus: 'USERS_REQUESTING'
-      });
-    case 'USERS_FAILURE':
-      return _.assign(state, {
-        readyStatus: 'USERS_FAILURE',
-        err: action.err
-      });
-    case 'USERS_SUCCESS':
-      return _.assign(state, {
-        readyStatus: 'USERS_SUCCESS',
-        list: action.data
+    case "FETCH_USERS":
+      return state.merge({
+        list: action.payload.data,
       });
     default:
-      return state;
+      return Immutable.isImmutable(state) ? state : Immutable(state);
   }
 };

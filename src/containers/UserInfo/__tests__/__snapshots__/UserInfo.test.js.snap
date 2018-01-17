@@ -22,19 +22,19 @@ exports[`<UserInfo /> renders the <UserCard /> if loading was successful 1`] = `
     </h4>
     <ul>
       <li>
-        Name: 
+        Name:
         Welly
       </li>
       <li>
-        Phone: 
+        Phone:
         007
       </li>
       <li>
-        Email: 
+        Email:
         test@gmail.com
       </li>
       <li>
-        Website: 
+        Website:
         www.test.com
       </li>
     </ul>

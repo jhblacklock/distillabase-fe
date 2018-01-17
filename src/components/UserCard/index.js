@@ -1,7 +1,7 @@
 /* @flow */
 
-import React from 'react';
-import styles from './styles.scss';
+import React from "react";
+import styles from "./styles.scss";
 
 type Props = { info: Object };
 

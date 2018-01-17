@@ -7,9 +7,9 @@ import styles from "./styles.scss";
 
 type Props = { list: Array<Object> };
 
-const UserList = ({ list }: Props) => (
+const DistilleryList = ({ list }: Props) => (
   <div className={styles.List}>
-    <h4>User List</h4>
+    <h4>Distillery List</h4>
     <ul>
       {list.map(user => (
         <li key={user.id}>
@@ -20,4 +20,4 @@ const UserList = ({ list }: Props) => (
   </div>
 );
 
-export default UserList;
+export default DistilleryList;

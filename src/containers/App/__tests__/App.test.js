@@ -1,17 +1,17 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { Provider } from 'react-redux';
-import { StaticRouter } from 'react-router-dom';
+import React from "react";
+import renderer from "react-test-renderer";
+import { Provider } from "react-redux";
+import { StaticRouter } from "react-router-dom";
 
-import App from '../index';
+import App from "../index";
 
-describe('<App />', () => {
-  test('renders', () => {
+describe("<App />", () => {
+  test("renders", () => {
     const fakeStore = {
       default: () => {},
       subscribe: () => {},
       dispatch: () => {},
-      getState: () => ({ home: () => {} })
+      getState: () => ({ home: () => {} }),
     };
 
     const tree = renderer
@@ -20,7 +20,7 @@ describe('<App />', () => {
           <StaticRouter context={{}}>
             <App />
           </StaticRouter>
-        </Provider>
+        </Provider>,
       )
       .toJSON();
 

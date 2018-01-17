@@ -1,14 +1,14 @@
-import React from 'react';
-import type { Element } from 'react';
-import Helmet from 'react-helmet';
-import serialize from 'serialize-javascript';
-import _ from 'lodash/fp';
+import React from "react";
+import type { Element } from "react";
+import Helmet from "react-helmet";
+import serialize from "serialize-javascript";
+import _ from "lodash/fp";
 
-import type { Store } from '../types';
+import type { Store } from "../types";
 
 type Props = { store: Store, htmlContent?: string };
 
-const Html = ({ store, htmlContent }: Props): Element<'html'> => {
+const Html = ({ store, htmlContent }: Props): Element<"html"> => {
   // Should be declared after "renderToStaticMarkup()" of "../server.js" or it won't work
   const head = Helmet.renderStatic();
   const attrs = head.htmlAttributes.toComponent();
@@ -16,7 +16,7 @@ const Html = ({ store, htmlContent }: Props): Element<'html'> => {
   const assets = webpackIsomorphicTools.assets();
 
   return (
-    <html {...rest} lang={lang || 'en'}>
+    <html {...rest} lang={lang || "en"}>
       <head>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
@@ -49,13 +49,13 @@ const Html = ({ store, htmlContent }: Props): Element<'html'> => {
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
               __html:
-                require('../theme/normalize.css')._style +
-                require('../containers/App/styles.scss')._style +
-                require('../containers/Home/styles.scss')._style +
-                require('../containers/UserInfo/styles.scss')._style +
-                require('../containers/NotFound/styles.scss')._style +
-                require('../components/UserList/styles.scss')._style +
-                require('../components/UserCard/styles.scss')._style
+                require("../theme/normalize.css")._style +
+                require("../containers/App/styles.scss")._style +
+                require("../containers/Home/styles.scss")._style +
+                require("../containers/UserInfo/styles.scss")._style +
+                require("../containers/NotFound/styles.scss")._style +
+                require("../components/UserList/styles.scss")._style +
+                require("../components/UserCard/styles.scss")._style,
             }}
           />
         ) : null}
@@ -65,7 +65,7 @@ const Html = ({ store, htmlContent }: Props): Element<'html'> => {
           id="react-view"
           // Rendering the route, which passed from server-side
           // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{ __html: htmlContent || '' }}
+          dangerouslySetInnerHTML={{ __html: htmlContent || "" }}
         />
 
         <script
@@ -74,7 +74,7 @@ const Html = ({ store, htmlContent }: Props): Element<'html'> => {
           dangerouslySetInnerHTML={{
             __html:
               store &&
-              `window.__INITIAL_STATE__=${serialize(store.getState())};`
+              `window.__INITIAL_STATE__=${serialize(store.getState())};`,
           }}
         />
         {_.keys(assets.javascript)
@@ -88,6 +88,6 @@ const Html = ({ store, htmlContent }: Props): Element<'html'> => {
   );
 };
 
-Html.defaultProps = { htmlContent: '' };
+Html.defaultProps = { htmlContent: "" };
 
 export default Html;
